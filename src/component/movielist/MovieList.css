@@ -1,0 +1,10 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    padding: 3rem;
+    margin: 3rem auto;
+}
+.movie {
+    margin: 2rem;
+}

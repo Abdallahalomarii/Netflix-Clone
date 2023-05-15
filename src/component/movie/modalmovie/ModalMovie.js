@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { Image } from 'react-bootstrap';
+import './ModalMovie.css';
 // import axios from 'axios';
 
 function ModalMovie(props) {

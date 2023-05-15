@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import ModalMovie from './modalmovie/ModalMovie'
 import axios from 'axios';
 import { useState } from 'react';
+import './Movie.css';
 
 
 
