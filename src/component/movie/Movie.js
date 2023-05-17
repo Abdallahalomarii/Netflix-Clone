@@ -38,6 +38,7 @@ function Movie(props) {
       .catch(error => {
         console.log(error);
       });
+    setShowFlag(false);
   };
 
   return (
