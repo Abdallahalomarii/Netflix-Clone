@@ -7,20 +7,21 @@ import Modal from 'react-bootstrap/Modal';
 function FavoriteModal(props) {
     const item = props.clickedMovie;
 
-    const UpdateMoiveHandler = async (e) =>{
+    const UpdateMoiveHandler = async (e) => {
         e.preventDefault();
-        
+
         const movieId = item.id;
-        const serverURL = `http://localhost:3000/update/${movieId}`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/update/${movieId}`;
         
+
         const obj = {
-            title : e.target.title.value,
-            release_date : e.target.release_date.value,
-            overview : e.target.overview.value, 
-            comments : e.target.comments.value
+            title: e.target.title.value,
+            release_date: e.target.release_date.value,
+            overview: e.target.overview.value,
+            comments: e.target.comments.value
         }
 
-        const result =  await axios.put(serverURL,obj)
+        const result = await axios.put(serverURL, obj)
         console.log('updated', result.data);
         props.handleClose();
         props.refreshUpdatedData(result.data);

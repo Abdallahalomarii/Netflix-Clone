@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import FavoriteModal from './FavoriteModal';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './style.css';
 
 function GetFavMovies(props) {
     const path = `https://image.tmdb.org/t/p/w500`;
@@ -25,7 +26,7 @@ function GetFavMovies(props) {
     }   
 
     const deleteMovie  = (item) =>{
-        const serverURL = `http://localhost:3000/delete/${item.id}`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/delete/${item.id}`;
 
         axios.delete(serverURL)
         .then(data=>{
@@ -42,11 +43,13 @@ function GetFavMovies(props) {
         setUpdatedValue(props.favMovieData)
     },[props.favMovieData])
     return (<>
-        {updatedValue.map(item => {
+            <div className='container'>
+            {updatedValue.map(item => {
             const datefromdb = new Date(item.release_date);
             const NewDate = datefromdb.toISOString().split('T')[0];
             return (
-                <Card style={{ width: '18rem' }} key={item.id}>
+                <div className='movie' key={item.id}>
+                    <Card style={{ width: '18rem' }} className='Cards'>
                     <Card.Img variant="top" src={path + item.poster_path} />
                     <Card.Body>
                         <Card.Title>{item.title}</Card.Title>
@@ -61,11 +64,13 @@ function GetFavMovies(props) {
                         </Button>
                     </Card.Body>
                 </Card>
+                </div>
 
 
             )
 
         })}
+            </div>
         <FavoriteModal
             showFlag={showFlag}
             clickedMovie={clickedMovie}

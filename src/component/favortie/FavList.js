@@ -5,7 +5,7 @@ function FavList() {
     const [favMovieData, setFavMovieData] = useState([])
 
     const getFavoriteMovies = () => {
-        const serverURL = `http://localhost:3000/getmovies`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/getmovies`;
         fetch(serverURL)
             .then(response => {
                 response.json()

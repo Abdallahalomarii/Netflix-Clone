@@ -5,6 +5,7 @@ import NavBar from './component/Navbar';
 import Favorite from './component/favortie/FavList';
 
 
+
 function App() {
   return(
    <>

@@ -8,3 +8,16 @@
 .movie {
     margin: 2rem;
 }
+
+.card {
+    height: 100%;
+}
+
+@media (max-width:800px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    
+}
